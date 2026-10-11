@@ -1,7 +1,7 @@
 # Daychi Knowledge
 
-Приватный проект подготовки знаний школы: источники, оцифровка, расшифровки,
-конспекты, темы, словарь, редактура и независимая проверка.
+Публичный репозиторий инструментов и протоколов подготовки знаний школы.
+Источники, расшифровки, рабочие пакеты, реестр и credentials остаются вне Git.
 
 Приложение, сайт, интерфейс вики и серверный API находятся в
 [Daychi](https://github.com/sleontenko/daychi). Этот репозиторий готовит пакеты
@@ -36,6 +36,7 @@ python3.12 -m venv .venv
 и [семантическом протоколе](docs/wiki-semantic-pipeline.md).
 Для структурированных статей: [совместимый контракт и импорт](docs/daychi-article-contract.md),
 [исправление трёх статей](docs/wiki-updates/2026-10-11-structured-article-repair.md).
+Для следующих партий: [бенч и пакетная подготовка](docs/wiki-article-benchmark.md).
 История full-source пилота: [обновлённый алгоритм](docs/wiki-article-pilot-protocol.md),
 [предложение расширенного контракта](docs/daychi-article-contract-proposal.md)
 и [публикация текстов трёх пробных статей](docs/wiki-updates/2026-10-09-article-pilot.md).

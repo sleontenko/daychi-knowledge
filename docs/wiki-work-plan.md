@@ -3,6 +3,29 @@
 Назначения и статусы ведутся в [приватном реестре](wiki-team-pipeline.md).
 [Процесс](wiki-production-pipeline.md) · [Протокол](wiki-contributor-pipeline.md).
 
+## Следующие десять статей и бенч · 2026-10-12
+
+По новой свежей сверке выбраны и зарезервированы десять наиболее свежих готовых
+источников без структурированной статьи: 64 916 слов, 6579 сегментов, 8 ч 17 мин
+59 с записей. Новые ASR и слушание не запускались. Подготовлены 10 статей
+(90 абзацев, 44 раздела), 8 понятий, 19 контекстных links и 21 переход на статьи
+(11 уникальных пар), 186 точных evidence окон. Пять прежних страниц не заменены.
+Полное независимое чтение, финальный content review и wire review — pass;
+локальные provider/replay/18 DTO, Chrome страницы и переходы проверены.
+Назначения — review_pass, не accepted/published/verified. Импорт не выполнен,
+реестр и production счётчики 476/1428 + три статьи/пять понятий не изменены.
+Прежние 45 review остаются открытыми; отчёты в Workshop приостановлены владельцем.
+
+Измеренный интервал setup → проверенный пакет/локальный reader — 22,35 мин,
+без начального изучения docs, документации/PR, ожидания владельца и publication QA.
+Чтение/черновики/упаковка редактора — 11,03 мин; независимое чтение — 6,65 мин
+параллельно. Отдельная длительность финального review, usage и стоимость неизвестны.
+Следующий шаг — одна приёмка точного hash и отдельное разрешение на публикацию,
+затем production QA. Следующий объём после неё: десять из свежей очереди;
+предварительная оценка 20–40 мин подготовки при сопоставимом готовом тексте,
+без публикации/merged зависимостей/ASR. Это оценка по одному запуску, не гарантия
+и не новое назначение. [Бенч, ограничения и команды](wiki-article-benchmark.md).
+
 ## Структурированные статьи: исправление опубликовано · 2026-10-12
 
 Владелец принял точный hash партии и отдельно разрешил импорт. Те же три статьи
@@ -656,3 +679,25 @@ Next: final batch review/owner acceptance, authorized import of these same3+5,
 receipt/replay/private+anonymous+UI checks and a preserving registry merge. Scaling
 remains deferred until this reader result is accepted.
 [Repair record](wiki-updates/2026-10-11-structured-article-repair.md).
+
+## Next-ten publication verified · 2026-10-12
+
+The owner accepted the exact planning result and article batch, authorized import,
+and authorized temporary QA access followed by revocation. Fresh production and
+registry pins matched before import. Ten articles and eight concept pages are now
+published; production has 13 structured articles and 13 concept pages. Durable
+receipt and idempotent replay passed. All 26 authorized reader DTOs, including the
+previous eight pages, matched; source fields and anonymous protection stayed intact.
+
+Chrome verified all 18 new pages, 90 paragraphs, 44 sections, 19 contextual links,
+21 related hrefs and concept backlinks. All new pages appear in Recent; concept
+and related-article navigation with return passed. Both temporary QA invitations
+were revoked and the API session was rejected afterward. Ten stable-ID matched
+registry notes and their row heights were updated; other package parts, manual
+fields, periods, formulas, styles and validations were preserved. Final snapshot
+has zero catalog disagreements; planning and article assignments are `verified`.
+
+Publication elapsed time, tokens and cost were not instrumented. The earlier
+22.35-minute measurement remains preparation plus local reader QA only. Next:
+reserve another ten eligible ready-text sources from a fresh queue if requested.
+No further batch, deployment or Workshop report was performed.

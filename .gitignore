@@ -9,6 +9,8 @@ __pycache__/
 .codex/
 .claude/
 data/
+# Worktrees may symlink the private data directory.
+data
 knowledge/raw/
 raw/
 outputs/
