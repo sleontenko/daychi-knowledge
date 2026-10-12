@@ -741,3 +741,22 @@ Next: finish both batches, independently verify the real exports, review decoder
 warnings and excluded audio, then edit and independently review the contents before
 owner acceptance. The 58-source prepare assignment remains claimed. Full task elapsed,
 tokens and cost are unavailable; no publication, deployment or Workshop report.
+
+### Whole-archive reading preparation · 2026-10-12
+
+The owner explicitly requested preparation of the entire archive. The existing
+58-source prepare reservation is retained; this does not issue an article assignment
+or authorize publication. A private reading-packet builder now groups every source
+under its original class/retreat cohort, preserves both complete recognized texts
+and original links, shows review/timing warnings, and retains TXT/SRT/raw responses.
+It requires complete collection coverage and rejects duplicate identities, changed
+export bytes and misleading Drive URLs before output. The HTML/ZIP packet is a
+reading aid, not independently accepted edited content.
+
+Paired ASR is still running. A one-shot follower will build the whole reading packet
+after both class and retreat exports finish; actual output QA, editorial review and
+owner acceptance remain outstanding. Synthetic catalog/card navigation and both-model
+reading were checked in Chrome; private screenshots retained. Actual source links
+for all 58 metadata records pass strict identity validation. No live archive packet,
+wiki import or Workshop report is claimed at this stage; elapsed/usage/cost remain
+unavailable for this continuation.
