@@ -694,3 +694,21 @@ flags, verify excluded intervals and source warnings, then perform full editoria
 and independent review. Intake-only PASS does not approve ASR or complete the
 prepare assignment. Drive-to-card publication binding and production permission
 remain separate gates. No new wiki content, import, deployment or Workshop report.
+
+### Retreat download access resolved · 2026-10-12
+
+The owner connected the intended Drive account. All 13 retreat originals then
+downloaded successfully through the connector and passed size/SHA-256/probe checks.
+All 58 originals are now saved: 54.974018 container hours including the same single
+binary duplicate, 57 unique originals. The retreat subset adds 7.472381 hours;
+its 13 originals decode without warnings. A fresh full decoder audit totals
+53 clean, 4 with warnings and 0 failures. The preceding blocked-download record
+describes the earlier account state and is retained as history.
+
+Retreat preparation produced 13 recordings and 488 clips in a separate manifest,
+preserving the current class ASR inputs and intake-review hashes. Across both
+batches, 57 unique recordings and 3686 clips are prepared. Retreat VAD/clip
+preparation measured 208.97 seconds, excluding setup and decoding. Local processing
+is queued after the class model passes to avoid concurrent GPU runs. All outputs
+remain machine-unverified;
+editorial review, VAD-exclusion checks and the four decoder-warning checks remain.
