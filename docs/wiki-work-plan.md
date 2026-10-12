@@ -656,3 +656,41 @@ Next: final batch review/owner acceptance, authorized import of these same3+5,
 receipt/replay/private+anonymous+UI checks and a preserving registry merge. Scaling
 remains deferred until this reader result is accepted.
 [Repair record](wiki-updates/2026-10-11-structured-article-repair.md).
+
+## Archive Neidan intake · 2026-10-12
+
+The owner requested a separate high-priority collection for discontinued retreat
+and Neidan recordings. A fresh owner inventory reconciled 1350 registry rows,
+476 summaries and 1428 excerpts without import disagreement. The coordinator
+reserved preparation for 58 existing Drive sources: 3 retreat recordings from
+2016, 10 from 2017 and 45 classes. No new registry sources were invented.
+
+Collection `archive-neidan` and archive/Neidan/subgroup tags were appended to
+61 existing notes (58 files and 3 containers). Independent intake review confirmed
+the other 35,143 cells, all row attributes/styles and 13 other XLSX ZIP parts are
+unchanged. Three shortcuts group the original folders in the owner's private
+Drive; originals and sharing stay unchanged. See [collection rules](wiki-archive-collections.md).
+
+45 originals downloaded and size/hash/probe-checked: 47.501637 hours including one
+binary duplicate, 44 unique originals. Both duplicate source IDs are retained.
+Full decoder audit: 40 clean, 4 with warnings, 0 failures. Decoded PCM totals
+46.075362 hours; VAD retained 27.518745 hours in 3198 clips. VAD/clip preparation
+measured 412.63 seconds (setup and decoding excluded). Thirteen retreat files
+remain unavailable for download through
+the current connector account; browser download also failed. Browser read access
+does not establish successful archival download.
+
+One complete 70.72-minute pilot was processed by both local models: Turbo 187.74s,
+Parakeet 64.59s (worker wall times). 71 of 76 clips were flagged; normalized word
+distance 0.746514 is heuristic disagreement, not measured accuracy. A language
+probe detected Russian in one 90-second sample. Paired ASR for all 44 unique
+recordings is running, not completed or accepted. Pilot-based machine-time
+estimate: about 2 hours, excluding downloads,
+setup and human review; actual full-run timing remains pending. Full task elapsed,
+tokens and cost were not instrumented.
+
+Next: resolve retreat access, finish resumable ASR, retain all mechanical/disagreement
+flags, verify excluded intervals and source warnings, then perform full editorial
+and independent review. Intake-only PASS does not approve ASR or complete the
+prepare assignment. Drive-to-card publication binding and production permission
+remain separate gates. No new wiki content, import, deployment or Workshop report.
