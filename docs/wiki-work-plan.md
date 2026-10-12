@@ -760,3 +760,38 @@ reading were checked in Chrome; private screenshots retained. Actual source link
 for all 58 metadata records pass strict identity validation. No live archive packet,
 wiki import or Workshop report is claimed at this stage; elapsed/usage/cost remain
 unavailable for this continuation.
+
+### Whole-archive machine preparation completed · 2026-10-12
+
+Both local models completed all 3686 clips across 57 unique recordings and 58
+original source IDs. The private reading packet contains all three original cohorts,
+57 HTML recording pages, both complete machine texts, 342 TXT/SRT files, 7372 raw
+responses and provenance. Independent mechanical QA checked every raw response,
+full-text block, export byte, original/PCM/clip binding, catalog link and ZIP member;
+the exact packet passed. Real catalog/card navigation, both model views, review
+flags, excluded intervals, duplicate aliases and decoder warnings were checked in
+Chrome. The ZIP and reader instructions were saved in the owner's existing private
+Drive archive folder; file metadata readback confirms size, parent and owner-only
+access. A fresh Drive comparison found all 58 original names, sizes and modification
+times unchanged; this is not a new remote-content checksum verification.
+
+Four recordings retain decoder warnings; 2885 clips retain machine review flags.
+Invalid SRT intervals total 146 (141 Turbo, 5 Parakeet), with their raw/TXT content
+preserved. VAD exclusions, terminology and meaning still require audio/content
+review. Mechanical PASS is not listening, measured transcription accuracy, teacher
+approval, editorial acceptance or completion of the prepare assignment. Its claimed
+state is retained; no article assignment or wiki import was created.
+
+Saved per-clip inference sums: class Turbo 6118.10s, class Parakeet 1561.57s,
+retreat Turbo 914.17s, retreat Parakeet 245.09s. Retreat worker wall times were
+916.84s and 247.16s; the resumed class Parakeet worker took 1573.14s. The one-shot
+continuation plus exports took 2789.10s, reusing all earlier class Turbo outputs.
+These measurements exclude prior intake/setup and are not full-task elapsed time.
+The independent mechanical checker measured 15.38s, not the full reviewer session.
+Full task elapsed, tokens and cost remain unavailable. Synthetic verification
+remains 145 passing tests and successful CI; code was unchanged after those checks.
+
+Next: use the complete reading packet for full audio/content review, prioritizing
+decoder warnings and excluded speech, then independent editorial review and the
+owner's exact-hash acceptance. New articles and publication require their existing
+separate assignments and permission. No deployment, release or Workshop report.
