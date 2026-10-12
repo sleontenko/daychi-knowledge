@@ -712,3 +712,32 @@ preparation measured 208.97 seconds, excluding setup and decoding. Local process
 is queued after the class model passes to avoid concurrent GPU runs. All outputs
 remain machine-unverified;
 editorial review, VAD-exclusion checks and the four decoder-warning checks remain.
+
+### Archive ASR continuation and private exporter · 2026-10-12
+
+All 3198 class Turbo responses survived the previous queue interruption; no active
+worker or paired completion record remained when continuation started. Their saved
+per-clip inference times sum to 6118.10 seconds; this excludes setup, decoding,
+preparation and review and is not full-task elapsed time. Resume validates and
+reuses those responses. The resumed Turbo worker's short wall time measures cached
+validation, not the original full model pass.
+
+The local one-shot background queue now resumes class Parakeet, then runs the
+488 retreat clips through both models sequentially, then creates private text/SRT
+exports. The first background launch failed because its PATH lacked the installed
+ffmpeg; this was corrected and Parakeet is producing responses. The job has no
+automatic respawn. Full paired completion and real-corpus export QA remain pending.
+
+The new Drive archive exporter preserves stable aliases, binary duplicates,
+both raw model responses, full recognized text, absolute segment times, VAD exclusions
+and review flags. Invalid SRT timings are omitted without discarding raw/TXT text;
+conflicting output files and paths escaping the private output directory are rejected.
+It creates no API requests or production batch. Synthetic verification: 130 tests
+passed, including independent reproductions for text loss, decoder warnings, path
+symlinks, ordering and millisecond-rounded intervals. Code review does not approve
+the actual ASR corpus. See [export usage and limits](wiki-archive-collections.md).
+
+Next: finish both batches, independently verify the real exports, review decoder
+warnings and excluded audio, then edit and independently review the contents before
+owner acceptance. The 58-source prepare assignment remains claimed. Full task elapsed,
+tokens and cost are unavailable; no publication, deployment or Workshop report.
