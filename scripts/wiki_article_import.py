@@ -7,6 +7,7 @@ from urllib.parse import urlsplit
 from urllib.request import HTTPCookieProcessor, Request, build_opener
 
 from daychi_contracts.articles import ArticleBatch
+from daychi_contracts.archive_articles import ArchiveBatch
 from scripts.wiki_workflow import Workflow, write_private
 
 
@@ -19,7 +20,10 @@ def main():
     parser.add_argument('--workflow-db',type=Path)
     parser.add_argument('--assignment')
     parser.add_argument('--receipt',type=Path)
-    args=parser.parse_args();batch=ArticleBatch.model_validate_json(args.batch.read_text())
+    args=parser.parse_args();raw=args.batch.read_text()
+    archive=json.loads(raw).get('format')=='daychi-wiki-archive-articles/1'
+    batch=(ArchiveBatch if archive else ArticleBatch).model_validate_json(raw)
+    endpoint='/api/admin/wiki/archive-articles' if archive else '/api/admin/wiki/articles'
     print(f'Validated {len(batch.articles)} articles / {len(batch.concepts)} concepts / {len(batch.links)} relations')
     if not args.apply:return
     origin=args.origin.rstrip('/');parts=urlsplit(origin)
@@ -43,10 +47,10 @@ def main():
         workflow=Workflow(args.workflow_db)
         try:workflow.begin_import(args.assignment,batch.model_dump(),'article',origin)
         finally:workflow.close()
-        imported=call('POST','/api/admin/wiki/articles',batch.model_dump())
+        imported=call('POST',endpoint,batch.model_dump())
         write_private(args.receipt,{'assignment_id':args.assignment,'batch_id':batch.batch_id,'origin':origin,
                                    'import':imported,'state':'server_write_confirmed_replay_pending'})
-        replay=call('POST','/api/admin/wiki/articles',batch.model_dump())
+        replay=call('POST',endpoint,batch.model_dump())
         assert imported['articles']==len(batch.articles) and imported['concepts']==len(batch.concepts) and imported['links']==len(batch.links) and replay['already_imported']
         receipt={'assignment_id':args.assignment,'batch_id':batch.batch_id,'origin':origin,
                  'import':imported,'replay':replay,'stored':call('GET','/api/admin/wiki/articles')}

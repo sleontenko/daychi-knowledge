@@ -836,3 +836,21 @@ Next: use the expanded queue for audio/content review and continue the remaining
 54 pairs of full ASR texts. The selected three also require audio checks before
 acceptance. Full editorial/session elapsed, tokens and cost are unavailable; no wiki
 import, deployment or Workshop report.
+
+### Whole archive article candidate and runtime · 2026-10-13
+
+The owner requested the entire archive published as structured articles, with assessment in the wiki afterward and no Workshop reports. All 57 unique recordings now have candidates. The coherent party retains 13 existing articles and all 13 canonical pages, adds 21 contextual pages and supplements two retained pages: 70 articles and 34 pages total. Full machine-text reading is attributed to disjoint authors/reviewers per source; listening, ASR accuracy and teacher approval are not claimed.
+
+A new article reservation covers 58 Drive aliases, 16 retained YouTube dependencies and 34 concepts. The preparation assignment and classification lineage remain intact. Exact final review and content import remain pending at this checkpoint.
+
+Targeted multilingual repair completed both auto-language passes for 473 clips. Original responses and flags remain unchanged. Corrected-export mechanical QA covered 45 repaired recordings, 3238 clips and 6476 raw responses in 10.07s; this is not acoustic review. Independent full-source/body review is complete, including final narrowed quotation repairs.
+
+Knowledge validates original/corrected raw models, attributed full reading, legacy reuse, exact quotations/flags, claims and navigation. The registry adapter recognizes active owner-bound archive articles, counts them separately from summaries and coalesces validated aliases. 204 Knowledge tests passed; the independently reviewed Daychi follow-up passed 184 backend tests and CI. Daychi PRs #10/#11 were merged; the first deployment succeeded and the follow-up package preserves all 59 unrelated deployed files. No archive content import is claimed here.
+
+Optimization: language-check throughout the recording before scaling, repair selected clips, reuse unchanged paired bytes with original readers, divide full reading into disjoint groups, and freeze before delta review. Full task elapsed, tokens and cost remain unavailable; subtask measurements are not the total. Next: finish exact-batch review, import under the owner task instruction, verify DTO/access/navigation and update the original registry.
+
+### Archive import approval checkpoint · 2026-10-13
+
+The exact content and modeled wire party passed independent review and final validation: 70 articles, 34 concepts, 542 claims and 826 evidence windows. Two fresh owner inventory reads still reconcile the original registry without discrepancies. The prior 13 article/page DTOs were saved through temporary authorized QA access before any write.
+
+Production import was rejected by automatic permission review because the owner had not separately accepted the subsequently generated exact batch hash. The standing instruction to finish publication did not satisfy that review. No archive content was imported; local task instruction/reference is not human hash inspection. The coordinator requested one explicit exact-hash acceptance and import decision. Publication QA, registry update and workflow verification remain pending. No Workshop report was sent.

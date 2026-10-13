@@ -18,6 +18,7 @@ import uuid
 from daychi_contracts.content import Batch
 from daychi_contracts.semantics import SemanticBatch
 from daychi_contracts.articles import ArticleBatch
+from daychi_contracts.archive_articles import ArchiveBatch
 
 MAX_SNAPSHOT_AGE = 86400
 ACTIVE = ('claimed', 'submitted', 'needs_changes', 'review_pass', 'accepted',
@@ -52,16 +53,26 @@ def require(condition, message):
 
 
 def batch_payload(path, kind):
+    if kind == 'article' and read(path).get('format') == 'daychi-wiki-archive-articles/1':
+        return ArchiveBatch.model_validate_json(Path(path).read_text()).model_dump()
     model = {'semantic': SemanticBatch, 'article': ArticleBatch, 'summary': Batch}[kind]
     return model.model_validate_json(Path(path).read_text()).model_dump()
 
 
 def batch_scope(batch, kind):
     if kind == 'article':
-        return sorted(['yt:' + s['resource_id'] for s in batch['sources']] + ['concept:' + c['id'] for c in batch['concepts']])
+        resources = []
+        for source in batch['sources']:
+            archive = source.get('archive')
+            resources.extend(a['resource_id'] for a in archive['aliases']) if archive else resources.append(resource_scope(source['resource_id']))
+        return sorted(resources + ['concept:' + c['id'] for c in batch['concepts']])
     if kind == 'semantic':
         return sorted(p['concept_id'] for p in batch['pages'])
     return sorted('yt:' + r['resource_id'] for r in batch['records'])
+
+
+def resource_scope(resource_id):
+    return resource_id if resource_id.startswith('drive:') else 'yt:' + resource_id
 
 
 class Workflow:
@@ -215,7 +226,7 @@ class Workflow:
                 for task in self.tasks_intact(identifier):
                     item = json.loads(task['payload'])
                     if assignment['kind'] == 'article':
-                        objects = [('yt:' + a['resource_id'], a) for a in batch['articles']] + [('concept:' + c['id'], c) for c in batch['concepts']]
+                        objects = [(resource_scope(a['resource_id']), a) for a in batch['articles']] + [('concept:' + c['id'], c) for c in batch['concepts']]
                         revisions = item.get('object_revisions', {})
                         require(revisions and set(revisions) == {identity for identity, value in objects}, 'Article assignment requires explicit object revisions')
                         require(all(value['revision'] == revisions[identity] for identity, value in objects), 'Revision differs from assignment')
