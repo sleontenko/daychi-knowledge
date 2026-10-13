@@ -795,3 +795,44 @@ Next: use the complete reading packet for full audio/content review, prioritizin
 decoder warnings and excluded speech, then independent editorial review and the
 owner's exact-hash acceptance. New articles and publication require their existing
 separate assignments and permission. No deployment, release or Workshop report.
+
+### Archive editorial continuation · 2026-10-13
+
+A fresh owner-inventory snapshot reconciled all 1350 registry rows without server
+import disagreements. The current workbook is the same independently verified
+notes-only archive classification version. All 58 current source fingerprints match
+the existing old-to-new notes reconciliation; they do not equal the original assigned
+fingerprints. IDs, source bindings and work scope are unchanged. The original prepare
+reservation is retained, without silently rewriting its assigned payloads or journal.
+
+Both complete ASR versions were read for three selected retreat parts: introduction,
+listening and closing discussion. A private working map groups their contents into
+15 sections and records ten unresolved issues, retaining source links, exact full
+texts, TXT/SRT/raw files and original plus additional editorial restrictions. It
+preserves health/pain/strain caveats, unresolved names and speaker attribution.
+One unflagged model pair reverses meaning through a missing negation; another
+unflagged pair remains unintelligible in both models. Neither is silently corrected.
+This is a three-source assessment, not full-archive editorial acceptance or an article
+import batch. Audio listening and transcription accuracy are not claimed.
+
+An additional private marker-difference diagnostic checked all 57 recordings,
+3686 paired clips and 7372 pinned raw responses in 1.76s. It identified 953 candidate
+clips, including 71 without inherited raw/segment quarantine. These are heuristic
+candidates, not confirmed meaning errors or measured accuracy; the known missing
+negation is included. Existing source outputs and quarantine remain unchanged.
+
+Independent read-only diagnosis rechecked all four decoder-warning originals and
+PCM hashes/probes. Container-to-PCM duration differences are below 0.9s, but decoder
+logs supply no exact damage locations. Audible continuity, loss and alignment remain
+unproven; warnings are retained. No new recognition pass or model download was run.
+
+Independent assessment/reader and negation-diagnostic reviews passed within their
+explicit text/diagnostic scope. The three-part working map was saved to the owner's
+existing private Drive archive group; metadata readback confirms the expected size,
+parent and owner-only access. Chrome checks covered all three pages, both full-text
+views and return navigation. These passes do not accept the contents as audio-verified.
+
+Next: use the expanded queue for audio/content review and continue the remaining
+54 pairs of full ASR texts. The selected three also require audio checks before
+acceptance. Full editorial/session elapsed, tokens and cost are unavailable; no wiki
+import, deployment or Workshop report.
