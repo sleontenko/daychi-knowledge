@@ -18,6 +18,7 @@ import zipfile
 
 from scripts.wiki_corpus_index import classify
 from scripts.wiki_workflow import digest, file_hash, require, write_private
+from daychi_contracts.archive_articles import ArchiveSource
 
 NS = {'x': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
 HEADERS = ['ID источника', 'Материал', 'Тип', 'Публикация', 'Группа учёта',
@@ -109,17 +110,38 @@ def make_snapshot(registry, rows, live_rows, metadata, checked_at):
     """Conservative intake: pending sources are preparation tasks, never guessed drafts."""
     bindings = {}
     published = {}
+    archive_published = {}
+    archive_aliases = {}
     for material in live_rows:
         for link in material.get('links', []):
             item = classify(link['url'])
             if item: bindings.setdefault(registry_id(item[1]), set()).add(material['id'])
         if material.get('annotation'): published[material['id']] = material['annotation']
+        if material.get('archive_article') is not None:
+            require(metadata.get('dto_visibility') == 'owner_inventory',
+                    'Active archive articles require coordinator owner inventory')
+            source = ArchiveSource(**material['archive_source'])
+            article = material['archive_article']
+            require(source.archive is not None and source.material_id == material['id'],
+                    'Archive source material binding differs')
+            require(article.get('format') == 'daychi-wiki-archive-articles/1' and
+                    type(article.get('revision')) is int and article['revision'] > 0 and
+                    article.get('status') == 'text_reviewed_asr_draft',
+                    'Invalid active archive article metadata')
+            aliases = {a.resource_id for a in source.archive.aliases}
+            linked = {registry_id(item[1]) for link in material.get('links', [])
+                      if (item := classify(link['url'])) and item[0] == 'drive'}
+            require(linked == aliases, 'Archive alias links differ from immutable source pins')
+            require(not aliases.intersection(archive_aliases), 'Archive alias belongs to multiple materials')
+            archive_published[material['id']] = article
+            archive_aliases.update({alias: material['id'] for alias in aliases})
     require(all(a.get('resource_id') for a in published.values()),
             'Public recording protection omits source bindings; use an authorized token or coordinator owner inventory')
     imported_sources = {'yt:' + a['resource_id'] for a in published.values()}
     tasks = []
     counts = {'registry_rows': len(rows), 'registry_imported': sum(bool(r[15]) for r in rows),
               'production_summaries': len(published), 'production_excerpts': sum(len(a['points']) for a in published.values()),
+              'production_archive_articles': len(archive_published), 'production_archive_aliases': len(archive_aliases),
               'independent_review_pending': 0, 'registry_server_disagreements': 0}
     targets = {}
     for r in rows:
@@ -128,12 +150,14 @@ def make_snapshot(registry, rows, live_rows, metadata, checked_at):
         rid = r[0]
         bound = bindings.get(rid, set())
         target = next(iter(bound)) if len(bound) == 1 else 'source:' + rid
-        ann = published.get(target)
-        server_has_source = rid in imported_sources
+        archive = archive_published.get(target) if archive_aliases.get(rid) == target else None
+        ann = archive or published.get(target)
+        server_has_source = archive is not None or rid in imported_sources
         disagreement = bool(r[15]) != server_has_source
         counts['registry_server_disagreements'] += disagreement
-        reviewed = r[12] == 'pass'
-        kind = 'review' if server_has_source and not reviewed else 'summary' if server_has_source else 'prepare'
+        reviewed = (all(row[12] == 'pass' for row in rows if archive_aliases.get(row[0]) == target)
+                    if archive else r[12] == 'pass')
+        kind = 'review' if server_has_source and not reviewed else 'article' if archive else 'summary' if server_has_source else 'prepare'
         revision = ann['revision'] if ann and server_has_source else 1
         state = 'published_existing' if server_has_source and reviewed else 'available'
         reasons = []
@@ -163,11 +187,15 @@ def make_snapshot(registry, rows, live_rows, metadata, checked_at):
     for group in seen.values():
         task = group[0]
         if len(group) > 1:
-            task['state'] = 'blocked'
-            task['blocked_reasons'].append('multiple_sources_for_target')
+            verified_alias_group = (task['target'] in archive_published and
+                                    all(archive_aliases.get(g['scope'][0]) == task['target'] for g in group))
+            task['blocked_reasons'] = sorted({reason for g in group for reason in g['blocked_reasons']})
+            if not verified_alias_group:
+                task['blocked_reasons'].append('multiple_sources_for_target')
+            if task['blocked_reasons']: task['state'] = 'blocked'
             task['scope'] = sorted({s for g in group for s in g['scope']})
             task['resource_ids'] = task['scope']
-            task['source_fingerprint'] = digest([g['source_fingerprint'] for g in group])
+            task['source_fingerprint'] = digest([g['source_fingerprint'] for g in sorted(group, key=lambda g: g['scope'])])
         unique.append(task)
     return {'protocol_version': 1, 'checked_at': checked_at, 'live_complete': True,
             'registry_path': str(Path(registry).resolve()), 'registry_sha256': file_hash(registry),

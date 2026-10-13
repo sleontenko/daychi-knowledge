@@ -656,3 +656,201 @@ Next: final batch review/owner acceptance, authorized import of these same3+5,
 receipt/replay/private+anonymous+UI checks and a preserving registry merge. Scaling
 remains deferred until this reader result is accepted.
 [Repair record](wiki-updates/2026-10-11-structured-article-repair.md).
+
+## Archive Neidan intake · 2026-10-12
+
+The owner requested a separate high-priority collection for discontinued retreat
+and Neidan recordings. A fresh owner inventory reconciled 1350 registry rows,
+476 summaries and 1428 excerpts without import disagreement. The coordinator
+reserved preparation for 58 existing Drive sources: 3 retreat recordings from
+2016, 10 from 2017 and 45 classes. No new registry sources were invented.
+
+Collection `archive-neidan` and archive/Neidan/subgroup tags were appended to
+61 existing notes (58 files and 3 containers). Independent intake review confirmed
+the other 35,143 cells, all row attributes/styles and 13 other XLSX ZIP parts are
+unchanged. Three shortcuts group the original folders in the owner's private
+Drive; originals and sharing stay unchanged. See [collection rules](wiki-archive-collections.md).
+
+45 originals downloaded and size/hash/probe-checked: 47.501637 hours including one
+binary duplicate, 44 unique originals. Both duplicate source IDs are retained.
+Full decoder audit: 40 clean, 4 with warnings, 0 failures. Decoded PCM totals
+46.075362 hours; VAD retained 27.518745 hours in 3198 clips. VAD/clip preparation
+measured 412.63 seconds (setup and decoding excluded). Thirteen retreat files
+remain unavailable for download through
+the current connector account; browser download also failed. Browser read access
+does not establish successful archival download.
+
+One complete 70.72-minute pilot was processed by both local models: Turbo 187.74s,
+Parakeet 64.59s (worker wall times). 71 of 76 clips were flagged; normalized word
+distance 0.746514 is heuristic disagreement, not measured accuracy. A language
+probe detected Russian in one 90-second sample. Paired ASR for all 44 unique
+recordings is running, not completed or accepted. Pilot-based machine-time
+estimate: about 2 hours, excluding downloads,
+setup and human review; actual full-run timing remains pending. Full task elapsed,
+tokens and cost were not instrumented.
+
+Next: resolve retreat access, finish resumable ASR, retain all mechanical/disagreement
+flags, verify excluded intervals and source warnings, then perform full editorial
+and independent review. Intake-only PASS does not approve ASR or complete the
+prepare assignment. Drive-to-card publication binding and production permission
+remain separate gates. No new wiki content, import, deployment or Workshop report.
+
+### Retreat download access resolved · 2026-10-12
+
+The owner connected the intended Drive account. All 13 retreat originals then
+downloaded successfully through the connector and passed size/SHA-256/probe checks.
+All 58 originals are now saved: 54.974018 container hours including the same single
+binary duplicate, 57 unique originals. The retreat subset adds 7.472381 hours;
+its 13 originals decode without warnings. A fresh full decoder audit totals
+53 clean, 4 with warnings and 0 failures. The preceding blocked-download record
+describes the earlier account state and is retained as history.
+
+Retreat preparation produced 13 recordings and 488 clips in a separate manifest,
+preserving the current class ASR inputs and intake-review hashes. Across both
+batches, 57 unique recordings and 3686 clips are prepared. Retreat VAD/clip
+preparation measured 208.97 seconds, excluding setup and decoding. Local processing
+is queued after the class model passes to avoid concurrent GPU runs. All outputs
+remain machine-unverified;
+editorial review, VAD-exclusion checks and the four decoder-warning checks remain.
+
+### Archive ASR continuation and private exporter · 2026-10-12
+
+All 3198 class Turbo responses survived the previous queue interruption; no active
+worker or paired completion record remained when continuation started. Their saved
+per-clip inference times sum to 6118.10 seconds; this excludes setup, decoding,
+preparation and review and is not full-task elapsed time. Resume validates and
+reuses those responses. The resumed Turbo worker's short wall time measures cached
+validation, not the original full model pass.
+
+The local one-shot background queue now resumes class Parakeet, then runs the
+488 retreat clips through both models sequentially, then creates private text/SRT
+exports. The first background launch failed because its PATH lacked the installed
+ffmpeg; this was corrected and Parakeet is producing responses. The job has no
+automatic respawn. Full paired completion and real-corpus export QA remain pending.
+
+The new Drive archive exporter preserves stable aliases, binary duplicates,
+both raw model responses, full recognized text, absolute segment times, VAD exclusions
+and review flags. Invalid SRT timings are omitted without discarding raw/TXT text;
+conflicting output files and paths escaping the private output directory are rejected.
+It creates no API requests or production batch. Synthetic verification: 130 tests
+passed, including independent reproductions for text loss, decoder warnings, path
+symlinks, ordering and millisecond-rounded intervals. Code review does not approve
+the actual ASR corpus. See [export usage and limits](wiki-archive-collections.md).
+
+Next: finish both batches, independently verify the real exports, review decoder
+warnings and excluded audio, then edit and independently review the contents before
+owner acceptance. The 58-source prepare assignment remains claimed. Full task elapsed,
+tokens and cost are unavailable; no publication, deployment or Workshop report.
+
+### Whole-archive reading preparation · 2026-10-12
+
+The owner explicitly requested preparation of the entire archive. The existing
+58-source prepare reservation is retained; this does not issue an article assignment
+or authorize publication. A private reading-packet builder now groups every source
+under its original class/retreat cohort, preserves both complete recognized texts
+and original links, shows review/timing warnings, and retains TXT/SRT/raw responses.
+It requires complete collection coverage and rejects duplicate identities, changed
+export bytes and misleading Drive URLs before output. The HTML/ZIP packet is a
+reading aid, not independently accepted edited content.
+
+Paired ASR is still running. A one-shot follower will build the whole reading packet
+after both class and retreat exports finish; actual output QA, editorial review and
+owner acceptance remain outstanding. Synthetic catalog/card navigation and both-model
+reading were checked in Chrome; private screenshots retained. Actual source links
+for all 58 metadata records pass strict identity validation. No live archive packet,
+wiki import or Workshop report is claimed at this stage; elapsed/usage/cost remain
+unavailable for this continuation.
+
+### Whole-archive machine preparation completed · 2026-10-12
+
+Both local models completed all 3686 clips across 57 unique recordings and 58
+original source IDs. The private reading packet contains all three original cohorts,
+57 HTML recording pages, both complete machine texts, 342 TXT/SRT files, 7372 raw
+responses and provenance. Independent mechanical QA checked every raw response,
+full-text block, export byte, original/PCM/clip binding, catalog link and ZIP member;
+the exact packet passed. Real catalog/card navigation, both model views, review
+flags, excluded intervals, duplicate aliases and decoder warnings were checked in
+Chrome. The ZIP and reader instructions were saved in the owner's existing private
+Drive archive folder; file metadata readback confirms size, parent and owner-only
+access. A fresh Drive comparison found all 58 original names, sizes and modification
+times unchanged; this is not a new remote-content checksum verification.
+
+Four recordings retain decoder warnings; 2885 clips retain machine review flags.
+Invalid SRT intervals total 146 (141 Turbo, 5 Parakeet), with their raw/TXT content
+preserved. VAD exclusions, terminology and meaning still require audio/content
+review. Mechanical PASS is not listening, measured transcription accuracy, teacher
+approval, editorial acceptance or completion of the prepare assignment. Its claimed
+state is retained; no article assignment or wiki import was created.
+
+Saved per-clip inference sums: class Turbo 6118.10s, class Parakeet 1561.57s,
+retreat Turbo 914.17s, retreat Parakeet 245.09s. Retreat worker wall times were
+916.84s and 247.16s; the resumed class Parakeet worker took 1573.14s. The one-shot
+continuation plus exports took 2789.10s, reusing all earlier class Turbo outputs.
+These measurements exclude prior intake/setup and are not full-task elapsed time.
+The independent mechanical checker measured 15.38s, not the full reviewer session.
+Full task elapsed, tokens and cost remain unavailable. Synthetic verification
+remains 145 passing tests and successful CI; code was unchanged after those checks.
+
+Next: use the complete reading packet for full audio/content review, prioritizing
+decoder warnings and excluded speech, then independent editorial review and the
+owner's exact-hash acceptance. New articles and publication require their existing
+separate assignments and permission. No deployment, release or Workshop report.
+
+### Archive editorial continuation · 2026-10-13
+
+A fresh owner-inventory snapshot reconciled all 1350 registry rows without server
+import disagreements. The current workbook is the same independently verified
+notes-only archive classification version. All 58 current source fingerprints match
+the existing old-to-new notes reconciliation; they do not equal the original assigned
+fingerprints. IDs, source bindings and work scope are unchanged. The original prepare
+reservation is retained, without silently rewriting its assigned payloads or journal.
+
+Both complete ASR versions were read for three selected retreat parts: introduction,
+listening and closing discussion. A private working map groups their contents into
+15 sections and records ten unresolved issues, retaining source links, exact full
+texts, TXT/SRT/raw files and original plus additional editorial restrictions. It
+preserves health/pain/strain caveats, unresolved names and speaker attribution.
+One unflagged model pair reverses meaning through a missing negation; another
+unflagged pair remains unintelligible in both models. Neither is silently corrected.
+This is a three-source assessment, not full-archive editorial acceptance or an article
+import batch. Audio listening and transcription accuracy are not claimed.
+
+An additional private marker-difference diagnostic checked all 57 recordings,
+3686 paired clips and 7372 pinned raw responses in 1.76s. It identified 953 candidate
+clips, including 71 without inherited raw/segment quarantine. These are heuristic
+candidates, not confirmed meaning errors or measured accuracy; the known missing
+negation is included. Existing source outputs and quarantine remain unchanged.
+
+Independent read-only diagnosis rechecked all four decoder-warning originals and
+PCM hashes/probes. Container-to-PCM duration differences are below 0.9s, but decoder
+logs supply no exact damage locations. Audible continuity, loss and alignment remain
+unproven; warnings are retained. No new recognition pass or model download was run.
+
+Independent assessment/reader and negation-diagnostic reviews passed within their
+explicit text/diagnostic scope. The three-part working map was saved to the owner's
+existing private Drive archive group; metadata readback confirms the expected size,
+parent and owner-only access. Chrome checks covered all three pages, both full-text
+views and return navigation. These passes do not accept the contents as audio-verified.
+
+Next: use the expanded queue for audio/content review and continue the remaining
+54 pairs of full ASR texts. The selected three also require audio checks before
+acceptance. Full editorial/session elapsed, tokens and cost are unavailable; no wiki
+import, deployment or Workshop report.
+
+### Whole archive article candidate and runtime · 2026-10-13
+
+The owner requested the entire archive published as structured articles, with assessment in the wiki afterward and no Workshop reports. All 57 unique recordings now have candidates. The coherent party retains 13 existing articles and all 13 canonical pages, adds 21 contextual pages and supplements two retained pages: 70 articles and 34 pages total. Full machine-text reading is attributed to disjoint authors/reviewers per source; listening, ASR accuracy and teacher approval are not claimed.
+
+A new article reservation covers 58 Drive aliases, 16 retained YouTube dependencies and 34 concepts. The preparation assignment and classification lineage remain intact. Exact final review and content import remain pending at this checkpoint.
+
+Targeted multilingual repair completed both auto-language passes for 473 clips. Original responses and flags remain unchanged. Corrected-export mechanical QA covered 45 repaired recordings, 3238 clips and 6476 raw responses in 10.07s; this is not acoustic review. Independent full-source/body review is complete, including final narrowed quotation repairs.
+
+Knowledge validates original/corrected raw models, attributed full reading, legacy reuse, exact quotations/flags, claims and navigation. The registry adapter recognizes active owner-bound archive articles, counts them separately from summaries and coalesces validated aliases. 204 Knowledge tests passed; the independently reviewed Daychi follow-up passed 184 backend tests and CI. Daychi PRs #10/#11 were merged; the first deployment succeeded and the follow-up package preserves all 59 unrelated deployed files. No archive content import is claimed here.
+
+Optimization: language-check throughout the recording before scaling, repair selected clips, reuse unchanged paired bytes with original readers, divide full reading into disjoint groups, and freeze before delta review. Full task elapsed, tokens and cost remain unavailable; subtask measurements are not the total. Next: finish exact-batch review, import under the owner task instruction, verify DTO/access/navigation and update the original registry.
+
+### Archive import approval checkpoint · 2026-10-13
+
+The exact content and modeled wire party passed independent review and final validation: 70 articles, 34 concepts, 542 claims and 826 evidence windows. Two fresh owner inventory reads still reconcile the original registry without discrepancies. The prior 13 article/page DTOs were saved through temporary authorized QA access before any write.
+
+Production import was rejected by automatic permission review because the owner had not separately accepted the subsequently generated exact batch hash. The standing instruction to finish publication did not satisfy that review. No archive content was imported; local task instruction/reference is not human hash inspection. The coordinator requested one explicit exact-hash acceptance and import decision. Publication QA, registry update and workflow verification remain pending. No Workshop report was sent.

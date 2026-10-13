@@ -34,6 +34,8 @@ python3.12 -m venv .venv
 [инструкции участника](docs/wiki-contributor-pipeline.md),
 [реестре](docs/wiki-team-pipeline.md), [плане](docs/wiki-work-plan.md)
 и [семантическом протоколе](docs/wiki-semantic-pipeline.md).
+Для исторических аудиоматериалов: [архивные коллекции и подготовка](docs/wiki-archive-collections.md)
+и [контракт архивных статей и проверки](docs/daychi-archive-article-contract.md).
 Для структурированных статей: [совместимый контракт и импорт](docs/daychi-article-contract.md),
 [исправление трёх статей](docs/wiki-updates/2026-10-11-structured-article-repair.md).
 История full-source пилота: [обновлённый алгоритм](docs/wiki-article-pilot-protocol.md),
