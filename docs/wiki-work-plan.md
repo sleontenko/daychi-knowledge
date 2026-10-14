@@ -854,3 +854,40 @@ Optimization: language-check throughout the recording before scaling, repair sel
 The exact content and modeled wire party passed independent review and final validation: 70 articles, 34 concepts, 542 claims and 826 evidence windows. Two fresh owner inventory reads still reconcile the original registry without discrepancies. The prior 13 article/page DTOs were saved through temporary authorized QA access before any write.
 
 Production import was rejected by automatic permission review because the owner had not separately accepted the subsequently generated exact batch hash. The standing instruction to finish publication did not satisfy that review. No archive content was imported; local task instruction/reference is not human hash inspection. The coordinator requested one explicit exact-hash acceptance and import decision. Publication QA, registry update and workflow verification remain pending. No Workshop report was sent.
+
+### Archive content import · 2026-10-14
+
+The owner explicitly accepted the exact frozen batch and authorized publication.
+The production receipt confirms 70 articles, 34 concept pages and 151 links;
+the repeat returned `already_imported: true`. This adds 57 archive articles and
+21 concept pages, supplements two retained concept pages, and preserves the
+13 previous articles and 13 canonical concept pages. The preceding 13 October
+permission-review block is retained as the earlier state.
+
+Content review covers attributed complete paired machine-text reading of the 57 archive
+recordings and scoped article/evidence review. The 16 retained YouTube source
+dependencies use their prior hash-bound full TXT/segment reviews. This does not
+establish audio listening, measured ASR accuracy or teacher approval.
+
+Production QA is **verified**: all 70 article and 34 concept authorized DTOs and
+anonymous projections match the accepted batch; source IDs and recording URLs
+remain protected in the checked anonymous projections. The 1,145 previous owner
+inventory rows are unchanged. The archive catalog has 57 articles: 44 classes,
+three retreat-2016 records and ten retreat-2017 records. The actual Chrome recent
+archive filter also shows 57; the separate API recent audit covers its limit of 40.
+Chrome confirms structured bodies, contextual concept and direct article navigation,
+and responsive layouts at 390, 768 and 1,440 pixels.
+
+The original registry now records all 58 Drive identities, with manual fields,
+source periods, archive notes, formulas and styles preserved. Its dependent formula
+results were recalculated with Artifact and checked independently; native Excel
+execution is not claimed. Fresh registry/server reconciliation has zero discrepancies:
+534 imported source rows, 476 legacy summaries, 1,428 legacy excerpts, 57 active
+archive articles and 58 aliases. The 45 earlier independent-review tasks remain.
+The article assignment is verified; both temporary QA grants are revoked and the
+reader token is rejected. Private receipts and evidence remain outside Git.
+
+No full-task working time was measured. Earlier measured inference/checker subtasks
+remain recorded above and are not total editorial time. Token usage and cost are
+unavailable. Next: assess the published archive in the wiki and collect editorial
+feedback. No Workshop report.
