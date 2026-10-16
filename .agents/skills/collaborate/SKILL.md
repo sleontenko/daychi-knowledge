@@ -9,7 +9,7 @@ description: >-
 [Workshop](https://github.com/dveyarangi/xuanxue-workshop) coordinates development
 across the school's projects and maintains their shared boundary agreements.
 
-Project label: `project:daychi`
+Project label: `project:knowledge`
 
 Source revision: [e209d27239391be3af2be71b898c79f453851c01](https://github.com/dveyarangi/xuanxue-workshop/commit/e209d27239391be3af2be71b898c79f453851c01).
 

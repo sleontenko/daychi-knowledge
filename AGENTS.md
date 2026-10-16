@@ -33,14 +33,12 @@ docs/wiki-contributor-pipeline.md, docs/wiki-team-pipeline.md и docs/wiki-work-
 
 Use [.agents/skills/collaborate/SKILL.md](.agents/skills/collaborate/SKILL.md)
 at session startup, before boundary changes, and when coordinating with Workshop.
-This is Daychi's knowledge track; retain `project:daychi`, not a new recipient label.
-Existing: knowledge pipeline prepares v1 JSON batches for Daychi's existing owner
-content import endpoints. Daychi owns content delivery, public/private access,
-its clients and Cabinet integration. The retained content API remains in Daychi.
-No Cabinet migration, deployment or publication is authorized by this split.
 
-Coexisting article extension deployed and pilot verified 2026-10-12: follow
-[the article contract](docs/daychi-article-contract.md). Knowledge owns editorial
-validation/importer/coordinator gates; Daychi owns models, storage and reader.
-[Workshop #9](https://github.com/dveyarangi/xuanxue-workshop/issues/9) coordinates
-the coexisting version. No retirement of content/semantics v1.
+Knowledge prepares content packages for Daychi’s import APIs. Knowledge owns source
+preparation, editorial review and import tooling; Daychi owns import definitions,
+storage, access control and readers.
+
+See the [content contract](https://github.com/sleontenko/daychi-knowledge/blob/e4006807c3adaa373ad3a6f63396d0a2eaea66ef/docs/daychi-content-contract.md)
+and [article contract](https://github.com/sleontenko/daychi-knowledge/blob/e4006807c3adaa373ad3a6f63396d0a2eaea66ef/docs/daychi-article-contract.md)
+for the shared definitions. Local import tools are under `scripts/`; contract
+mirrors are in `daychi_contracts/`.
